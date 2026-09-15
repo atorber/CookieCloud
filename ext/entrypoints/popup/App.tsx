@@ -48,6 +48,17 @@ const CookieCloudPopup: React.FC = () => {
       try {
         const savedData = await load_data("COOKIE_SYNC_SETTING");
         if (savedData) {
+          // 旧版本 popup 把 radio/number 输入存成字符串；这里归一化成数字，
+          // 否则 with_storage === 1 之类的严格比较会让控件显示成未选中。
+          if (savedData.with_storage !== undefined) {
+            savedData.with_storage = Number(savedData.with_storage);
+          }
+          if (savedData.interval !== undefined) {
+            savedData.interval = Number(savedData.interval);
+          }
+          if (savedData.expire_minutes !== undefined) {
+            savedData.expire_minutes = Number(savedData.expire_minutes);
+          }
           setData(prevData => ({ ...prevData, ...savedData }));
         }
       } catch (error) {

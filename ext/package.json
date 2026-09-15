@@ -3,19 +3,24 @@
   "displayName": "CookieCloud",
   "description": "Sync cookies between browses",
   "private": true,
-  "version": "0.3.1",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",
     "build": "wxt build",
+    "build:chrome": "wxt build -b chrome",
     "build:firefox": "wxt build -b firefox",
     "zip": "wxt zip",
+    "zip:chrome": "wxt zip -b chrome",
     "zip:firefox": "wxt zip -b firefox",
     "compile": "tsc --noEmit",
+    "github:build": "node scripts/release.mjs --mode=build",
+    "github:release": "node scripts/release.mjs --mode=release",
     "postinstall": "wxt prepare"
   },
   "devDependencies": {
+    "@inquirer/prompts": "^8.4.2",
     "@types/chrome": "^0.1.3",
     "@types/crypto-js": "^4.2.2",
     "@types/pako": "^2.0.3",
@@ -39,5 +44,6 @@
     "react-dom": "^18.2.0",
     "short-uuid": "^5.2.0",
     "webextension-polyfill": "^0.12.0"
-  }
+  },
+  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48"
 }

@@ -2,6 +2,7 @@ import { defineConfig } from 'wxt';
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
+  outDir: 'dist',
   modules: ['@wxt-dev/webextension-polyfill'],
   manifest: {
     name: '__MSG_appTitle__',
